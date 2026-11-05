@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Get a quote | Pulita Energy</title>
+  <meta name="description" content="Request a quote from Pulita Energy for LPG and CNG generators, PRMS and CNG station services.">
+  <meta name="theme-color" content="#1a2027">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=7">
+  <script>document.documentElement.classList.add("js");</script>
+  <script src="script.js?v=7" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.webp" width="152" height="93" alt="Pulita Energy home">
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="menu-toggle__bars" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__list">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html" aria-current="page">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="button button--primary button--small" href="contact.html">Get a Quote</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero on-dark grid-lines" aria-labelledby="page-title">
+      <div class="container">
+        <h1 id="page-title">Clean power starts here.</h1>
+        <p>Ready to power up? Get a custom energy solution built for your needs.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-layout">
+        <section class="contact-details" aria-labelledby="details-title">
+          <h2 id="details-title">Contact details</h2>
+          <dl>
+            <dt>Phone</dt>
+            <dd><a href="tel:+2348030800999">+234 803 080 0999</a></dd>
+            <dt>Email</dt>
+            <dd><a href="mailto:info@pulitaenergy.ng">info@pulitaenergy.ng</a></dd>
+            <dt>Address</dt>
+            <dd>57B, Akintunde, Adeyemi Dr, Lekki Phase 1, Lagos</dd>
+            <dt>Office hours</dt>
+            <dd>9 AM to 8 PM, Monday to Friday</dd>
+          </dl>
+        </section>
+
+        <form class="quote-form" id="quote-form" method="post"
+              aria-labelledby="form-title"
+              data-unavailable="Online requests aren't available yet. Call +234 803 080 0999 to request a quote."
+              data-failed="Your request wasn't sent. Check your connection and try again, or call +234 803 080 0999.">
+          <h2 id="form-title">Request a quote</h2>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" autocomplete="name" required data-required="Enter your full name.">
+              <p class="field__error" id="name-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="company">Company <span class="field__optional">(optional)</span></label>
+              <input id="company" name="company" type="text" autocomplete="organization">
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required data-required="Enter your phone number.">
+              <p class="field__error" id="phone-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="field__optional">(optional)</span></label>
+              <input id="email" name="email" type="email" autocomplete="email">
+              <p class="field__error" id="email-error" hidden></p>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="interest">What do you need?</label>
+              <select id="interest" name="interest" required data-required="Choose what you need.">
+                <option value="">Choose one</option>
+                <option>LPG generator set</option>
+                <option>CNG generator set</option>
+                <option>Dual-fuel generator set</option>
+                <option>PRMS</option>
+                <option>Cylinder groups or daughter station</option>
+                <option>CNG station services</option>
+                <option>Not sure yet</option>
+              </select>
+              <p class="field__error" id="interest-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="capacity">Power needed in kVA <span class="field__optional">(optional)</span></label>
+              <input id="capacity" name="capacity" type="text" inputmode="numeric">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Project details</label>
+            <textarea id="message" name="message" required data-required="Tell us about your project."></textarea>
+            <p class="field__error" id="message-error" hidden></p>
+          </div>
+
+          <button class="button button--dark" type="submit">Send quote request</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <div class="site-footer__about">
+          <a class="brand" href="index.html">
+            <img src="images/logo.webp" width="152" height="93" alt="Pulita Energy home">
+          </a>
+          <p>Clean energy solutions for a sustainable future.</p>
+          <p class="site-footer__contact"><a href="tel:+2348030800999">+234 803 080 0999</a><br><a href="mailto:info@pulitaenergy.ng">info@pulitaenergy.ng</a><br>57B, Akintunde, Adeyemi Dr, Lekki Phase 1, Lagos<br>9 AM to 8 PM, Monday to Friday</p>
+        </div>
+        <nav class="site-footer__col--pages" aria-labelledby="footer-pages">
+          <h2 id="footer-pages">Pages</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__col--services" aria-labelledby="footer-products">
+          <h2 id="footer-products">Products</h2>
+          <ul>
+            <li><a href="services.html#generators">Generator sets</a></li>
+            <li><a href="services.html#prms">PRMS</a></li>
+            <li><a href="services.html#cylinders">Cylinder groups and daughter stations</a></li>
+            <li><a href="services.html#station-services">CNG station services</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="site-footer__legal">&copy; <span data-year>2026</span> Pulita Energy. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
