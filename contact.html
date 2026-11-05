@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Get a quote | Pulita Energy</title>
-  <meta name="description" content="Request a quote from Pulita Energy for LPG and CNG generators, PRMS and CNG station services.">
-  <meta name="theme-color" content="#1a2027">
+  <meta name="description" content="Request a quote from Pulita Energy for gas generators, CNG refilling stations, CNG cascade, skid tubes and biogas systems.">
+  <meta name="theme-color" content="#3aa0ff">
   <link rel="icon" href="images/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;600&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=7">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=9">
   <script>document.documentElement.classList.add("js");</script>
-  <script src="script.js?v=7" defer></script>
+  <script src="script.js?v=9" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -34,25 +34,27 @@
           <li><a href="contact.html" aria-current="page">Contact</a></li>
         </ul>
       </nav>
-      <a class="button button--primary button--small" href="contact.html">Get a Quote</a>
+      <a class="button button--dark" href="contact.html">Get a Quote</a>
     </div>
   </header>
 
   <main id="main">
-    <section class="page-hero on-dark grid-lines" aria-labelledby="page-title">
+    <section class="page-hero on-blue" aria-labelledby="page-title">
       <div class="container">
         <h1 id="page-title">Clean power starts here.</h1>
         <p>Ready to power up? Get a custom energy solution built for your needs.</p>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container contact-layout">
-        <section class="contact-details" aria-labelledby="details-title">
+    <section class="section on-paper">
+      <div class="container quote-layout">
+        <section class="quote-layout__text" aria-labelledby="details-title">
           <h2 id="details-title">Contact details</h2>
-          <dl>
+          <dl class="contact-list" style="margin:1.75rem 0 0">
             <dt>Phone</dt>
             <dd><a href="tel:+2348030800999">+234 803 080 0999</a></dd>
+            <dt>WhatsApp</dt>
+            <dd><a href="https://wa.me/2348030800999?text=Hello%20Pulita%20Energy%2C%20I%20would%20like%20a%20quote." target="_blank" rel="noopener">Message us on WhatsApp</a></dd>
             <dt>Email</dt>
             <dd><a href="mailto:info@pulitaenergy.ng">info@pulitaenergy.ng</a></dd>
             <dt>Address</dt>
@@ -62,12 +64,10 @@
           </dl>
         </section>
 
-        <form class="quote-form" id="quote-form" method="post"
-              aria-labelledby="form-title"
+        <form class="quote-form" id="quote-form" method="post" aria-labelledby="form-title"
               data-unavailable="Online requests aren't available yet. Call +234 803 080 0999 to request a quote."
               data-failed="Your request wasn't sent. Check your connection and try again, or call +234 803 080 0999.">
-          <h2 id="form-title">Request a quote</h2>
-
+          <h3 id="form-title">Request a quote</h3>
           <div class="field-row">
             <div class="field">
               <label for="name">Full name</label>
@@ -79,7 +79,6 @@
               <input id="company" name="company" type="text" autocomplete="organization">
             </div>
           </div>
-
           <div class="field-row">
             <div class="field">
               <label for="phone">Phone number</label>
@@ -92,40 +91,28 @@
               <p class="field__error" id="email-error" hidden></p>
             </div>
           </div>
-
-          <div class="field-row">
-            <div class="field">
-              <label for="interest">What do you need?</label>
-              <select id="interest" name="interest" required data-required="Choose what you need.">
-                <option value="">Choose one</option>
-                <option>LPG generator set</option>
-                <option>CNG generator set</option>
-                <option>Dual-fuel generator set</option>
-                <option>PRMS</option>
-                <option>Cylinder groups or daughter station</option>
-                <option>CNG station services</option>
-                <option>Not sure yet</option>
-              </select>
-              <p class="field__error" id="interest-error" hidden></p>
-            </div>
-            <div class="field">
-              <label for="capacity">Power needed in kVA <span class="field__optional">(optional)</span></label>
-              <input id="capacity" name="capacity" type="text" inputmode="numeric">
-            </div>
+          <div class="field">
+            <label for="interest">What do you need?</label>
+            <select id="interest" name="interest" required data-required="Choose what you need."><option value="">Choose one</option><option>Gas generator</option><option>CNG refilling station</option><option>CNG cascade</option><option>Skid tubes with CNG trucks</option><option>Biogas system</option><option>Not sure yet</option></select>
+            <p class="field__error" id="interest-error" hidden></p>
           </div>
-
           <div class="field">
             <label for="message">Project details</label>
             <textarea id="message" name="message" required data-required="Tell us about your project."></textarea>
             <p class="field__error" id="message-error" hidden></p>
           </div>
-
           <button class="button button--dark" type="submit">Send quote request</button>
           <p class="form-status" id="form-status" role="status"></p>
         </form>
       </div>
     </section>
   </main>
+
+  <nav class="quick-bar" aria-label="Quick contact">
+    <a class="quick-bar__call" href="tel:+2348030800999">Call</a>
+    <a class="quick-bar__chat" href="https://wa.me/2348030800999?text=Hello%20Pulita%20Energy%2C%20I%20would%20like%20a%20quote." target="_blank" rel="noopener">WhatsApp</a>
+    <a class="quick-bar__quote" href="contact.html">Get a Quote</a>
+  </nav>
 
   <footer class="site-footer">
     <div class="container">
@@ -134,8 +121,11 @@
           <a class="brand" href="index.html">
             <img src="images/logo.webp" width="152" height="93" alt="Pulita Energy home">
           </a>
-          <p>Clean energy solutions for a sustainable future.</p>
-          <p class="site-footer__contact"><a href="tel:+2348030800999">+234 803 080 0999</a><br><a href="mailto:info@pulitaenergy.ng">info@pulitaenergy.ng</a><br>57B, Akintunde, Adeyemi Dr, Lekki Phase 1, Lagos<br>9 AM to 8 PM, Monday to Friday</p>
+          <p class="site-footer__line">Reliable new energy equipment suppliers drive a better life</p>
+        </div>
+        <div class="site-footer__contact">
+          <h2>Contact</h2>
+          <p><a href="tel:+2348030800999">+234 803 080 0999</a><br><a href="https://wa.me/2348030800999?text=Hello%20Pulita%20Energy%2C%20I%20would%20like%20a%20quote." target="_blank" rel="noopener">WhatsApp us</a><br><a href="mailto:info@pulitaenergy.ng">info@pulitaenergy.ng</a><br>57B, Akintunde, Adeyemi Dr, Lekki Phase 1, Lagos<br>9 AM to 8 PM, Monday to Friday</p>
         </div>
         <nav class="site-footer__col--pages" aria-labelledby="footer-pages">
           <h2 id="footer-pages">Pages</h2>
@@ -147,13 +137,14 @@
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </nav>
-        <nav class="site-footer__col--services" aria-labelledby="footer-products">
+        <nav class="site-footer__col--products" aria-labelledby="footer-products">
           <h2 id="footer-products">Products</h2>
           <ul>
-            <li><a href="services.html#generators">Generator sets</a></li>
-            <li><a href="services.html#prms">PRMS</a></li>
-            <li><a href="services.html#cylinders">Cylinder groups and daughter stations</a></li>
-            <li><a href="services.html#station-services">CNG station services</a></li>
+            <li><a href="products.html#gas-generators">Gas generators</a></li>
+            <li><a href="products.html#stations">CNG refilling stations</a></li>
+            <li><a href="products.html#cascade">CNG cascade</a></li>
+            <li><a href="products.html#skid-tubes">Skid tubes with CNG trucks</a></li>
+            <li><a href="products.html#biogas">Biogas systems</a></li>
           </ul>
         </nav>
       </div>

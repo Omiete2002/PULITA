@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pulita Energy | Reliable new energy equipment suppliers in Nigeria</title>
+  <meta name="description" content="Reliable new energy equipment suppliers: safer, more economical, more reliable gas generators, CNG refilling stations, CNG cascade, skid tubes with CNG trucks and biogas systems.">
+  <meta name="theme-color" content="#3aa0ff">
+  <link rel="icon" href="images/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Barlow:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=9">
+  <script>document.documentElement.classList.add("js");</script>
+  <style>
+    .loader {
+      display: none;
+    }
+
+    .loader-on .loader {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      animation: loader-out 0.5s 4s ease forwards;
+    }
+
+    .loader-done .loader {
+      display: none;
+    }
+
+    .loader-lock body {
+      overflow: hidden;
+    }
+
+    .loader__logo {
+      display: grid;
+      justify-items: center;
+      animation: loader-fade 0.7s ease both;
+    }
+
+    .loader__logo img {
+      display: block;
+      width: 10rem;
+      height: auto;
+      animation: loader-bounce 1s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+    }
+
+    .loader__shadow {
+      width: 6.5rem;
+      height: 0.5rem;
+      margin-top: 1rem;
+      border-radius: 50%;
+      background: rgb(26 32 39 / 0.14);
+      animation: loader-shadow 1s cubic-bezier(0.3, 0, 0.7, 1) infinite;
+    }
+
+    @keyframes loader-fade {
+      from {
+        opacity: 0;
+      }
+    }
+
+    @keyframes loader-bounce {
+      0%,
+      100% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-1.75rem);
+      }
+    }
+
+    @keyframes loader-shadow {
+      0%,
+      100% {
+        transform: scaleX(1);
+      }
+
+      50% {
+        transform: scaleX(0.6);
+        opacity: 0.55;
+      }
+    }
+
+    @keyframes loader-out {
+      to {
+        opacity: 0;
+        visibility: hidden;
+      }
+    }
+  </style>
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      var skip = false;
+      try {
+        skip = sessionStorage.getItem("pulita-skip-loader");
+        sessionStorage.removeItem("pulita-skip-loader");
+      } catch (error) {}
+      if (skip) return;
+      root.classList.add("loader-on", "loader-lock");
+      setTimeout(function () {
+        root.classList.add("loader-done");
+        root.classList.remove("loader-lock");
+      }, still ? 4000 : 4500);
+    })();
+  </script>
+  <script src="script.js?v=9" defer></script>
+</head>
+<body>
+  <div class="loader" aria-hidden="true">
+    <div class="loader__logo">
+      <img src="images/logo.webp" width="152" height="93" alt="">
+      <span class="loader__shadow"></span>
+    </div>
+  </div>
+
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="index.html">
+        <img src="images/logo.webp" width="152" height="93" alt="Pulita Energy home">
+      </a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Open menu">
+        <span class="menu-toggle__bars" aria-hidden="true"></span>
+      </button>
+      <nav class="site-nav" id="site-nav" aria-label="Main">
+        <ul class="site-nav__list">
+          <li><a href="index.html" aria-current="page">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="button button--dark" href="contact.html">Get a Quote</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero on-blue" aria-labelledby="hero-title">
+      <div class="container hero__inner">
+        <p class="hero__note"><span>Clean, reliable energy equipment OEM</span><span>Global Certified ISO 9001:2015</span></p>
+        <h1 id="hero-title" aria-label="Reliable new energy equipment suppliers drive a better life">
+          <span class="hero__row" aria-hidden="true"><span class="hero__mask"><span>Reliable new energy</span></span></span>
+          <span class="hero__row" aria-hidden="true"><span class="hero__mask"><span>equipment suppliers</span></span></span>
+          <span class="hero__row" aria-hidden="true"><span class="hero__mask"><span>drive a better life</span></span></span>
+        </h1>
+        <div class="hero__foot">
+          <p class="lead">Our equipment is safer, more economical and more reliable.</p>
+          <div class="hero__actions">
+            <a class="button button--dark" href="contact.html">Get a Quote</a>
+            <a class="button button--line" href="https://wa.me/2348030800999?text=Hello%20Pulita%20Energy%2C%20I%20would%20like%20a%20quote." target="_blank" rel="noopener">WhatsApp us</a>
+          </div>
+        </div>
+        <div class="hero__gen">
+          <img src="images/cng-generator.webp" width="750" height="562" alt="An enclosed beige Pulita generator set.">
+        </div>
+      </div>
+      <div class="ticker" aria-hidden="true">
+        <div class="ticker__track">
+          <ul><li>Gas generators</li><li>CNG refilling stations</li><li>CNG cascade</li><li>Skid tubes with CNG trucks</li><li>Biogas systems</li></ul>
+          <ul><li>Gas generators</li><li>CNG refilling stations</li><li>CNG cascade</li><li>Skid tubes with CNG trucks</li><li>Biogas systems</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="traits-title">
+      <div class="container">
+        <h2 class="section-gap" id="traits-title">Equipment built to three standards</h2>
+        <ul class="traits" data-reveal-group>
+          <li class="trait" data-reveal>
+            <svg class="drawing" viewBox="0 0 480 300" aria-hidden="true" focusable="false"><path pathLength="1" d="M240 28L392 78V158C392 214 324 258 240 276C156 258 88 214 88 158V78Z"/><path pathLength="1" d="M168 150L222 202L320 100"/></svg>
+            <h3>Safer</h3>
+            <p>Safety inspections for CNG stations, backed by ISO 9001:2015 and EU CE certification.</p>
+          </li>
+          <li class="trait" data-reveal>
+            <svg class="drawing" viewBox="0 0 480 300" aria-hidden="true" focusable="false"><path pathLength="1" d="M240 26A124 124 0 1 0 240 274A124 124 0 1 0 240 26"/><path pathLength="1" d="M196 214V88L284 214V88"/><path pathLength="1" d="M172 134H308"/><path pathLength="1" d="M172 166H308"/></svg>
+            <h3>More economical</h3>
+            <p>LPG and CNG generators that save money. Our Mabushi, Abuja system was designed to reduce dependence on diesel.</p>
+          </li>
+          <li class="trait" data-reveal>
+            <svg class="drawing" viewBox="0 0 480 300" aria-hidden="true" focusable="false"><path pathLength="1" d="M64 236A176 176 0 0 1 416 236"/><path pathLength="1" d="M20 236H460"/><path pathLength="1" d="M104 236A136 136 0 0 1 376 236"/><path pathLength="1" d="M240 236L330 120"/><path pathLength="1" d="M240 60V84"/><path pathLength="1" d="M116 112L134 130"/><path pathLength="1" d="M364 112L346 130"/><path pathLength="1" d="M240 224A12 12 0 1 0 240 248A12 12 0 1 0 240 224"/></svg>
+            <h3>More reliable</h3>
+            <p>A proven track record of 90+ projects, with 24/7 customer support for CNG stations.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section on-dark" aria-labelledby="line-title">
+      <div class="container">
+        <div class="split section-gap">
+          <h2 id="line-title">Our product line</h2>
+          <p class="soft">We design, manufacture and install advanced multi-energy power solutions.</p>
+        </div>
+        <ol class="gas-line">
+          <li class="gas-item" id="home-generators" data-reveal>
+            <div class="gas-item__text">
+              <h3>Gas generators</h3>
+              <p>LPG, CNG and dual-fuel generator sets, from 10kVA to 4000kVA.</p>
+              
+              <a class="text-link" href="products.html#gas-generators">View generators</a>
+            </div>
+            <div class="gas-item__art"><img src="images/hero-generator.webp" width="632" height="484" loading="lazy" alt="An enclosed blue and grey generator set."></div>
+          </li>
+          <li class="gas-item" id="home-stations" data-reveal>
+            <div class="gas-item__text">
+              <h3>CNG refilling stations</h3>
+              
+              <ul class="tag-list"><li>Daughter stations</li><li>MRU</li><li>CNG mother stations</li><li>Equipment and EPC</li></ul>
+              <a class="text-link" href="products.html#stations">View stations</a>
+            </div>
+            <div class="gas-item__art"><svg class="drawing" viewBox="0 0 480 300" aria-hidden="true" focusable="false"><path pathLength="1" d="M20 272H460"/><path pathLength="1" d="M56 62H424V92H56Z"/><path pathLength="1" d="M128 92V272"/><path pathLength="1" d="M352 92V272"/><path pathLength="1" d="M200 148H280V272H200Z"/><path pathLength="1" d="M216 164H264V198H216Z"/><path pathLength="1" d="M216 216H264"/><path pathLength="1" d="M280 186C318 186 318 238 298 248"/><path pathLength="1" d="M292 244L306 256"/></svg></div>
+          </li>
+          <li class="gas-item" id="home-cascade" data-reveal>
+            <div class="gas-item__text">
+              <h3>CNG cascade</h3>
+              
+              
+              <a class="text-link" href="products.html#cascade">View CNG cascade</a>
+            </div>
+            <div class="gas-item__art"><svg class="drawing" viewBox="0 0 480 300" aria-hidden="true" focusable="false"><path pathLength="1" d="M36 54H444V262H36Z"/><path pathLength="1" d="M36 90H444"/><path pathLength="1" d="M36 228H444"/><path pathLength="1" d="M64 262V286"/><path pathLength="1" d="M416 262V286"/><path pathLength="1" d="M24 72H456"/><path pathLength="1" d="M66 212V132A23 23 0 0 1 112 132V212Q89 222 66 212Z"/><path pathLength="1" d="M130 212V132A23 23 0 0 1 176 132V212Q153 222 130 212Z"/><path pathLength="1" d="M194 212V132A23 23 0 0 1 240 132V212Q217 222 194 212Z"/><path pathLength="1" d="M258 212V132A23 23 0 0 1 304 132V212Q281 222 258 212Z"/><path pathLength="1" d="M322 212V132A23 23 0 0 1 368 132V212Q345 222 322 212Z"/><path pathLength="1" d="M89 109V90"/><path pathLength="1" d="M153 109V90"/><path pathLength="1" d="M217 109V90"/><path pathLength="1" d="M281 109V90"/><path pathLength="1" d="M345 109V90"/></svg></div>
+          </li>
+          <li class="gas-item" id="home-skid" data-reveal>
+            <div class="gas-item__text">
+              <h3>Skid tubes with CNG trucks</h3>
+              
+              
+              <a class="text-link" href="products.html#skid-tubes">View skid tubes</a>
+            </div>
+            <div class="gas-item__art"><svg class="drawing" viewBox="0 0 480 300" aria-hidden="true" focusable="false"><path pathLength="1" d="M16 214H464"/><path pathLength="1" d="M28 214V128H96L126 168V214"/><path pathLength="1" d="M46 144H90L108 168H46Z"/><path pathLength="1" d="M136 214V198H452V214"/><path pathLength="1" d="M152 98H436A11 11 0 0 1 436 120H152A11 11 0 0 1 152 98Z"/><path pathLength="1" d="M152 124H436A11 11 0 0 1 436 146H152A11 11 0 0 1 152 124Z"/><path pathLength="1" d="M152 150H436A11 11 0 0 1 436 172H152A11 11 0 0 1 152 150Z"/><path pathLength="1" d="M152 174H436A11 11 0 0 1 436 196H152A11 11 0 0 1 152 174Z"/><path pathLength="1" d="M50 234a20 20 0 1 0 40 0a20 20 0 1 0 -40 0"/><path pathLength="1" d="M310 234a20 20 0 1 0 40 0a20 20 0 1 0 -40 0"/><path pathLength="1" d="M362 234a20 20 0 1 0 40 0a20 20 0 1 0 -40 0"/><path pathLength="1" d="M414 234a20 20 0 1 0 40 0a20 20 0 1 0 -40 0"/></svg></div>
+          </li>
+          <li class="gas-item" id="home-biogas" data-reveal>
+            <div class="gas-item__text">
+              <h3>Biogas systems</h3>
+              
+              
+              <a class="text-link" href="products.html#biogas">View biogas systems</a>
+            </div>
+            <div class="gas-item__art"><svg class="drawing" viewBox="0 0 480 300" aria-hidden="true" focusable="false"><path pathLength="1" d="M20 262H460"/><path pathLength="1" d="M64 262V176A118 96 0 0 1 300 176V262"/><path pathLength="1" d="M64 176H300"/><path pathLength="1" d="M104 176A78 60 0 0 1 260 176"/><path pathLength="1" d="M300 214H372V112"/><path pathLength="1" d="M348 112H396"/><path pathLength="1" d="M372 112V58"/><path pathLength="1" d="M360 58H384"/><path pathLength="1" d="M180 262V286H320V262"/><path pathLength="1" d="M416 262V170H448V262"/></svg></div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section on-paper" aria-labelledby="nigeria-title">
+      <div class="container split split--wide">
+        <div>
+          <h2 id="nigeria-title">Working across Nigeria</h2>
+          <p class="lead" style="margin-top:1.25rem">Projects delivered across multiple states, powering industries, communities and businesses.</p>
+          <dl class="contact-list" style="margin:1.75rem 0 0">
+            <dt>Lagos</dt>
+            <dd>57B, Akintunde, Adeyemi Dr, Lekki Phase 1, Lagos</dd>
+            <dt>Abuja</dt>
+            <dd>2 &times; 100kW LPG generators, Mabushi</dd>
+          </dl>
+          <div class="button-row">
+            <a class="button button--dark" href="tel:+2348030800999">Call +234 803 080 0999</a>
+          </div>
+        </div>
+        <div data-reveal><svg class="drawing map" viewBox="0 0 470 400" role="img" aria-label="Map of Nigeria marking Lagos and Abuja." focusable="false"><path pathLength="1" d="M18.0 277.2L19.8 223.2L32.4 180.0L50.4 136.8L52.2 86.4L68.4 23.4L118.8 9.0L165.6 36.0L226.8 37.8L266.4 46.8L316.8 27.0L363.6 36.0L410.4 14.4L428.4 57.6L446.4 90.0L403.2 144.0L392.4 187.2L360.0 208.8L345.6 255.6L320.4 270.0L288.0 255.6L262.8 277.2L239.4 302.4L226.8 336.6L180.0 345.6L140.4 352.8L115.2 324.0L97.2 288.0L75.6 280.8L43.2 277.2Z"/><path class="map__pipe" pathLength="1" d="M45.0 275.4L107.0 213.39999999999998H150.4L190.4 181.4"/><path class="map__flow" pathLength="100" d="M45.0 275.4L107.0 213.39999999999998H150.4L190.4 181.4"/><circle class="map__ping" cx="190.4" cy="181.4" r="9"/><circle class="map__ping" cx="45.0" cy="275.4" r="9"/><circle class="map__pin" cx="190.4" cy="181.4" r="9"/><circle class="map__pin" cx="45.0" cy="275.4" r="9"/><text class="map__label" x="206.4" y="188.4">Abuja</text><text class="map__label" x="11.0" y="319.4">Lagos</text></svg></div>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Track record">
+      <div class="container">
+        <ul class="plate">
+          <li class="plate__row" data-reveal>
+            <p class="plate__value" data-count="90" data-suffix="+">90+</p>
+            <h2 class="plate__label">Projects</h2>
+            <p class="plate__text">We've successfully delivered clean energy solutions in multiple states, powering industries, communities and businesses nationwide.</p>
+          </li>
+          <li class="plate__row" data-reveal>
+            <p class="plate__value" data-count="80" data-suffix="+">80+</p>
+            <h2 class="plate__label">Clients</h2>
+            <p class="plate__text">From top-tier corporations to growing enterprises, our clients rely on Pulita for efficient, sustainable power systems.</p>
+          </li>
+          <li class="plate__row" data-reveal>
+            <p class="plate__value" data-count="92.5" data-decimals="1" data-suffix="+">92.5+</p>
+            <h2 class="plate__label">Satisfaction</h2>
+            <p class="plate__text">We pride ourselves on delivering energy solutions that meet expectations and build lasting trust through performance.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section on-paper" aria-labelledby="factory-title">
+      <div class="container split section-gap">
+        <h2 id="factory-title">From our 30,000 sq. meter facility in Weifang, China</h2>
+        <div>
+          <p class="soft">We're powering the transition to a cleaner future, one generator at a time.</p>
+          <div class="button-row"><a class="button button--line" href="about.html">About Pulita</a></div>
+        </div>
+      </div>
+      <div class="reel" tabindex="0" role="region" aria-label="Photos of Pulita equipment and projects">
+        <figure class="reel__item" data-reveal="wipe"><div class="reel__frame"><img src="images/workshop.webp" width="662" height="364" alt="Three white generator sets on a workshop floor."></div></figure>
+        <figure class="reel__item" data-reveal="wipe"><div class="reel__frame"><img src="images/on-site-generator.webp" width="1200" height="900" alt="An engineer in a high-visibility vest working on a laptop beside a blue generator."></div></figure>
+        <figure class="reel__item" data-reveal="wipe"><div class="reel__frame"><img src="images/nog-energy-week.webp" width="1800" height="1287" alt="Four people standing in front of the NOG Energy Week sign."></div><figcaption>Pulita at NOG Energy Week.</figcaption></figure>
+      </div>
+      <div class="container reel-controls">
+        <button type="button" data-reel="-1" aria-label="Previous photo"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.500" d="M20 12H5M11 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-reel="1" aria-label="Next photo"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2.500" d="M4 12h15M13 5l7 7-7 7"/></svg></button>
+      </div>
+    </section>
+
+    <section class="section on-dark" aria-labelledby="project-title">
+      <div class="container split split--wide split--top">
+        <figure class="project__photo" data-reveal="wipe"><img src="images/project-mabushi.webp" width="1200" height="900" alt="Six people standing in front of a containerised generator installation."></figure>
+        <div class="project__text">
+          <h3 id="project-title">2 &times; 100kW LPG generator &ndash; Mabushi, Abuja</h3>
+          <p class="soft">Pulita New Energy deployed two 100kW LPG-powered generators at a commercial facility in Mabushi, Abuja. This dual-generator system was designed to provide a steady, clean and cost-effective power supply while reducing dependence on diesel and lowering the overall environmental footprint of the facility.</p>
+          <div class="button-row"><a class="button button--blue" href="contact.html">Ask about a similar project</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section on-blue" aria-labelledby="power-title">
+      <div class="container quote-layout">
+        <div class="quote-layout__text">
+          <h2 id="power-title">Power smarter with Pulita Energy</h2>
+          <p class="lead">Customized, efficient and eco-friendly power solutions.</p>
+        </div>
+        <form class="quote-form" id="quote-form" method="post" aria-labelledby="form-title"
+              data-unavailable="Online requests aren't available yet. Call +234 803 080 0999 to request a quote."
+              data-failed="Your request wasn't sent. Check your connection and try again, or call +234 803 080 0999.">
+          <h3 id="form-title">Request a quote</h3>
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required data-required="Enter your name.">
+            <p class="field__error" id="name-error" hidden></p>
+          </div>
+          <div class="field-row">
+            <div class="field">
+              <label for="phone">Phone number</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" required data-required="Enter your phone number.">
+              <p class="field__error" id="phone-error" hidden></p>
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="field__optional">(optional)</span></label>
+              <input id="email" name="email" type="email" autocomplete="email">
+              <p class="field__error" id="email-error" hidden></p>
+            </div>
+          </div>
+          <div class="field">
+            <label for="interest">Product type</label>
+            <select id="interest" name="interest" required data-required="Choose a product type."><option value="">Select</option><option>Gas generator</option><option>CNG refilling station</option><option>CNG cascade</option><option>Skid tubes with CNG trucks</option><option>Biogas system</option><option>Not sure yet</option></select>
+            <p class="field__error" id="interest-error" hidden></p>
+          </div>
+          <button class="button button--dark" type="submit">Send quote request</button>
+          <p class="form-status" id="form-status" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <nav class="quick-bar" aria-label="Quick contact">
+    <a class="quick-bar__call" href="tel:+2348030800999">Call</a>
+    <a class="quick-bar__chat" href="https://wa.me/2348030800999?text=Hello%20Pulita%20Energy%2C%20I%20would%20like%20a%20quote." target="_blank" rel="noopener">WhatsApp</a>
+    <a class="quick-bar__quote" href="contact.html">Get a Quote</a>
+  </nav>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="site-footer__top">
+        <div class="site-footer__about">
+          <a class="brand" href="index.html">
+            <img src="images/logo.webp" width="152" height="93" alt="Pulita Energy home">
+          </a>
+          <p class="site-footer__line">Reliable new energy equipment suppliers drive a better life</p>
+        </div>
+        <div class="site-footer__contact">
+          <h2>Contact</h2>
+          <p><a href="tel:+2348030800999">+234 803 080 0999</a><br><a href="https://wa.me/2348030800999?text=Hello%20Pulita%20Energy%2C%20I%20would%20like%20a%20quote." target="_blank" rel="noopener">WhatsApp us</a><br><a href="mailto:info@pulitaenergy.ng">info@pulitaenergy.ng</a><br>57B, Akintunde, Adeyemi Dr, Lekki Phase 1, Lagos<br>9 AM to 8 PM, Monday to Friday</p>
+        </div>
+        <nav class="site-footer__col--pages" aria-labelledby="footer-pages">
+          <h2 id="footer-pages">Pages</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </nav>
+        <nav class="site-footer__col--products" aria-labelledby="footer-products">
+          <h2 id="footer-products">Products</h2>
+          <ul>
+            <li><a href="products.html#gas-generators">Gas generators</a></li>
+            <li><a href="products.html#stations">CNG refilling stations</a></li>
+            <li><a href="products.html#cascade">CNG cascade</a></li>
+            <li><a href="products.html#skid-tubes">Skid tubes with CNG trucks</a></li>
+            <li><a href="products.html#biogas">Biogas systems</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="site-footer__legal">&copy; <span data-year>2026</span> Pulita Energy. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

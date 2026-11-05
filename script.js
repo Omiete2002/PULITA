@@ -1,4 +1,5 @@
-/* Pulita Energy: shared script (all pages). No dependencies. */
+/* Pulita Energy: shared script (all pages). No dependencies.
+   Every effect runs on scroll, swipe or tap, so phones and desktops get the same site. */
 (function () {
   "use strict";
 
@@ -33,7 +34,7 @@
     var nav = document.getElementById("site-nav");
     if (!toggle || !nav) return;
 
-    var desktop = window.matchMedia("(min-width: 56.3125rem)");
+    var desktop = window.matchMedia("(min-width: 60.0625rem)");
 
     function setOpen(open) {
       toggle.setAttribute("aria-expanded", String(open));
@@ -62,23 +63,58 @@
     });
   }
 
-  /* Header border once the page has scrolled
+  /* Scroll effects: one loop for the progress bar, gas line and hero
+     The gas line and progress bar follow the visitor's own scrolling, so
+     they stay on for everyone. The hero movement respects reduced motion.
      ------------------------------------------------------------------ */
-  function initHeader() {
+  function initScrollEffects() {
     var header = document.querySelector(".site-header");
-    if (!header) return;
+    var hero = document.querySelector(".hero");
+    var lines = document.querySelectorAll(".gas-line");
+    var bar = document.createElement("div");
+    var queued = false;
 
-    function update() {
-      header.classList.toggle("is-scrolled", window.scrollY > 8);
+    bar.className = "scroll-progress";
+    bar.setAttribute("aria-hidden", "true");
+    header.appendChild(bar);
+
+    function clamp(value) {
+      return Math.min(Math.max(value, 0), 1);
     }
 
+    function update() {
+      var viewport = window.innerHeight;
+      var range = document.documentElement.scrollHeight - viewport;
+
+      bar.style.transform = "scaleX(" + (range > 0 ? clamp(window.scrollY / range) : 0) + ")";
+
+      lines.forEach(function (line) {
+        var box = line.getBoundingClientRect();
+        line.style.setProperty("--p", clamp((viewport * 0.65 - box.top) / box.height).toFixed(4));
+      });
+
+      if (hero && !reduceMotion.matches) {
+        var heroBox = hero.getBoundingClientRect();
+        hero.style.setProperty("--s", clamp(-heroBox.top / heroBox.height).toFixed(4));
+      }
+
+      queued = false;
+    }
+
+    function queue() {
+      if (queued) return;
+      queued = true;
+      window.requestAnimationFrame(update);
+    }
+
+    window.addEventListener("scroll", queue, { passive: true });
+    window.addEventListener("resize", queue);
     update();
-    window.addEventListener("scroll", update, { passive: true });
   }
 
   /* Scroll reveal
      Add data-reveal to an element. Siblings inside [data-reveal-group]
-     are staggered automatically.
+     are staggered automatically. Reveal also triggers the line drawings.
      ------------------------------------------------------------------ */
   function initReveal() {
     var items = document.querySelectorAll("[data-reveal]");
@@ -93,7 +129,7 @@
 
     document.querySelectorAll("[data-reveal-group]").forEach(function (group) {
       group.querySelectorAll("[data-reveal]").forEach(function (item, index) {
-        item.style.setProperty("--reveal-delay", index * 70 + "ms");
+        item.style.setProperty("--reveal-delay", index * 80 + "ms");
       });
     });
 
@@ -110,6 +146,69 @@
 
     items.forEach(function (item) {
       observer.observe(item);
+    });
+  }
+
+  /* Numbers count up when they scroll in. The HTML already holds the final
+     values, so nothing is lost without this.
+     ------------------------------------------------------------------ */
+  function initCountUp() {
+    var counters = document.querySelectorAll("[data-count]");
+    if (!counters.length || reduceMotion.matches || !("IntersectionObserver" in window)) return;
+
+    function format(node, value) {
+      node.textContent = value.toFixed(Number(node.dataset.decimals || 0)) + (node.dataset.suffix || "");
+    }
+
+    function run(node) {
+      var target = Number(node.dataset.count);
+      var start = null;
+
+      function step(now) {
+        if (start === null) start = now;
+        var progress = Math.min((now - start) / 1400, 1);
+        format(node, target * (1 - Math.pow(1 - progress, 3)));
+        if (progress < 1) window.requestAnimationFrame(step);
+      }
+
+      window.requestAnimationFrame(step);
+    }
+
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          observer.unobserve(entry.target);
+          run(entry.target);
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    counters.forEach(function (node) {
+      format(node, 0);
+      observer.observe(node);
+    });
+  }
+
+  /* Photo reel buttons. On touch screens the reel also swipes natively.
+     ------------------------------------------------------------------ */
+  function initReel() {
+    var reel = document.querySelector(".reel");
+    if (!reel) return;
+
+    function move(direction) {
+      var item = reel.querySelector(".reel__item");
+      reel.scrollBy({
+        left: direction * (item.offsetWidth + 16),
+        behavior: reduceMotion.matches ? "auto" : "smooth"
+      });
+    }
+
+    document.querySelectorAll("[data-reel]").forEach(function (button) {
+      button.addEventListener("click", function () {
+        move(Number(button.dataset.reel));
+      });
     });
   }
 
@@ -207,119 +306,6 @@
     });
   }
 
-  /* Home page effects
-     All skipped when the visitor asks for reduced motion. The numbers in the
-     HTML are already final, so nothing is lost without them.
-     ------------------------------------------------------------------ */
-  function initScrollProgress() {
-    var header = document.querySelector(".site-header");
-    var bar = document.createElement("div");
-    var queued = false;
-
-    bar.className = "scroll-progress";
-    bar.setAttribute("aria-hidden", "true");
-    header.appendChild(bar);
-
-    function update() {
-      var range = document.documentElement.scrollHeight - window.innerHeight;
-      bar.style.transform = "scaleX(" + (range > 0 ? window.scrollY / range : 0) + ")";
-      queued = false;
-    }
-
-    window.addEventListener(
-      "scroll",
-      function () {
-        if (!queued) {
-          queued = true;
-          window.requestAnimationFrame(update);
-        }
-      },
-      { passive: true }
-    );
-    update();
-  }
-
-  function initGeneratorTilt(hero) {
-    var image = hero.querySelector(".hero__generator img");
-    if (!image) return;
-
-    hero.addEventListener("pointermove", function (event) {
-      if (event.pointerType !== "mouse") return;
-      var box = hero.getBoundingClientRect();
-      var x = (event.clientX - box.left) / box.width - 0.5;
-      var y = (event.clientY - box.top) / box.height - 0.5;
-      image.style.setProperty("--ry", (x * 14).toFixed(2) + "deg");
-      image.style.setProperty("--rx", (y * -9).toFixed(2) + "deg");
-    });
-
-    hero.addEventListener("pointerleave", function () {
-      image.style.setProperty("--ry", "0deg");
-      image.style.setProperty("--rx", "0deg");
-    });
-  }
-
-  function initCountUp() {
-    var counters = document.querySelectorAll("[data-count]");
-    if (!counters.length || !("IntersectionObserver" in window)) return;
-
-    function format(node, value) {
-      node.textContent = value.toFixed(Number(node.dataset.decimals || 0)) + (node.dataset.suffix || "");
-    }
-
-    function run(node) {
-      var target = Number(node.dataset.count);
-      var start = null;
-
-      function step(now) {
-        if (start === null) start = now;
-        var progress = Math.min((now - start) / 1400, 1);
-        format(node, target * (1 - Math.pow(1 - progress, 3)));
-        if (progress < 1) window.requestAnimationFrame(step);
-      }
-
-      window.requestAnimationFrame(step);
-    }
-
-    var observer = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (!entry.isIntersecting) return;
-          observer.unobserve(entry.target);
-          run(entry.target);
-        });
-      },
-      { threshold: 0.6 }
-    );
-
-    counters.forEach(function (node) {
-      format(node, 0);
-      observer.observe(node);
-    });
-  }
-
-  function initTileSpotlight() {
-    if (!window.matchMedia("(hover: hover)").matches) return;
-
-    document.querySelectorAll(".bento").forEach(function (bento) {
-      bento.addEventListener("pointermove", function (event) {
-        var tile = event.target.closest(".tile");
-        if (!tile) return;
-        var box = tile.getBoundingClientRect();
-        tile.style.setProperty("--mx", event.clientX - box.left + "px");
-        tile.style.setProperty("--my", event.clientY - box.top + "px");
-      });
-    });
-  }
-
-  function initHomeEffects() {
-    var hero = document.querySelector(".hero");
-    if (!hero || reduceMotion.matches) return;
-    initScrollProgress();
-    initGeneratorTilt(hero);
-    initCountUp();
-    initTileSpotlight();
-  }
-
   /* Footer year
      ------------------------------------------------------------------ */
   function initYear() {
@@ -330,11 +316,12 @@
 
   initLoaderSkip();
   initMenu();
-  initHeader();
+  initScrollEffects();
+  initReel();
   initQuoteForm();
+  initYear();
   window.setTimeout(function () {
     initReveal();
-    initHomeEffects();
+    initCountUp();
   }, introDelay);
-  initYear();
 })();
